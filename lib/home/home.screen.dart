@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_hook/counter/counter.dart';
+import 'package:flutter_riverpod_hook/counter/counter.screen.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends HookConsumerWidget {
@@ -17,12 +17,12 @@ class HomeScreen extends HookConsumerWidget {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) {
-                          return const Counter();
+                          return const CounterScreen();
                         },
                       ),
                     );
                   },
-                  child: Text('go to counter =>')),
+                  child: const Text('go to counter =>')),
             )
           ]),
     );
