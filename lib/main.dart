@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod_hook/home/home.screen.dart';
-import 'package:flutter_riverpod_hook/utils/shared_preferences.provider.dart';
+import 'package:flutter_riverpod_hook/counter/counter.screen.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+final counterProvider = StateProvider((ref) => 0, name: 'counter');
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final prefs = await SharedPreferences.getInstance();
   runApp(
-    ProviderScope(
-      overrides: [
-        sharedPreferencesProvider.overrideWithValue(prefs),
-      ],
-      child: const MyApp(),
+    const ProviderScope(
+      child: MyApp(),
     ),
   );
 }
@@ -24,9 +19,10 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Example')),
+        appBar:
+            AppBar(title: const Text('Bài tập counter sử dụng riverpop hook')),
         body: const Center(
-          child: HomeScreen(),
+          child: CounterScreen(),
         ),
       ),
     );
