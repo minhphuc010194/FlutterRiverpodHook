@@ -12,6 +12,7 @@ class CounterScreen extends HookConsumerWidget {
         onPressed: () {
           ref.read(counterProvider.notifier).state++;
         },
+        style: TextButton.styleFrom(primary: Colors.green),
         child: Text("count: $count"),
       ),
     );
